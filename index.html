@@ -21,6 +21,7 @@
         display: grid;
         text-align: center;
         overflow: hidden;
+        font-size: 3.5vh;
       }
 
       #clock {
@@ -37,22 +38,21 @@
 
       #time {
         font-family: 'VT323', monospace;
-        /*font-size: 10rem;*/
-        font-size: 39vmin;
+        /*font-size: 9rem;*/
+        font-size: 15rem;
       }
 
       #date,
       #motd {
         font-family: 'Source Code Pro', monospace;
-        /*font-size: 2.5rem;*/
-        font-size: 10vmin;
+        font-size: 2.5rem;
       }
     </style>
   </head>
 
   <body>
     <!--<iframe src="https://player.twitch.tv/?volume=0.41&!muted&channel=yogscast" style="position:fixed; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:-1;"></iframe>-->
-    <canvas id="galaxy" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:-1;"></canvas>
+    <!--<canvas id="galaxy" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:-1;"></canvas>-->
     <span id="clock">
       <p id="date">Weekday, 88th Month 2088</p>
       <p id="time">88:88:88 xx</p>
@@ -63,9 +63,11 @@
     <script src="js/index.js"></script>
 
 
-  <video autoplay muted loop>
-    <source src="data:video/webm;base64,GkXfo0AgQoaBAUL3gQFC8oEEQvOBCEKCQAR3ZWJtQoeBAkKFgQIYU4BnQI0VSalmQCgq17FAAw9CQE2AQAZ3aGFtbXlXQUAGd2hhbW15RIlACECPQAAAAAAAFlSua0AxrkAu14EBY8WBAZyBACK1nEADdW5khkAFVl9WUDglhohAA1ZQOIOBAeBABrCBCLqBCB9DtnVAIueBAKNAHIEAAIAwAQCdASoIAAgAAUAmJaQAA3AA/vz0AAA=" type="video/webm">
-  </video>
+    <video autoplay muted loop>
+      <source
+        src="data:video/webm;base64,GkXfo0AgQoaBAUL3gQFC8oEEQvOBCEKCQAR3ZWJtQoeBAkKFgQIYU4BnQI0VSalmQCgq17FAAw9CQE2AQAZ3aGFtbXlXQUAGd2hhbW15RIlACECPQAAAAAAAFlSua0AxrkAu14EBY8WBAZyBACK1nEADdW5khkAFVl9WUDglhohAA1ZQOIOBAeBABrCBCLqBCB9DtnVAIueBAKNAHIEAAIAwAQCdASoIAAgAAUAmJaQAA3AA/vz0AAA="
+        type="video/webm">
+    </video>
   </body>
 
 </html>

@@ -26,13 +26,13 @@ function updateTimeTheme(isDarkened) {
         document.getElementById("date").style.color = "rgba(255, 255, 255, 0.25)";
         document.getElementById("time").style.color = "rgba(255, 255, 255, 0.3)";
         document.getElementById("motd").style.color = "rgba(255, 255, 255, 0.25)";
-        document.getElementById("galaxy").opacity = 0.25;
+        //document.getElementById("galaxy").opacity = 0.25;
     } else {
         /* Day Mode */
         document.getElementById("date").style.color = "rgba(255, 255, 255, 0.50)";
         document.getElementById("time").style.color = "rgba(255, 255, 255, 0.75)";
         document.getElementById("motd").style.color = "rgba(255, 255, 255, 0.50)";
-        document.getElementById("galaxy").opacity = 1;
+        //document.getElementById("galaxy").opacity = 1;
     }
 }
 
@@ -45,10 +45,11 @@ function tickTime() {
         year: 'numeric'
     });
     document.getElementById("time").innerHTML = new Date().toLocaleString('en-GB', {
-        hour12: true,
+        //hour12: true,
+        hour24: true,
         hour: "2-digit",
         minute: "2-digit",
-        second: "2-digit"
+        //second: "2-digit"
     });
 }
 
@@ -70,14 +71,12 @@ function randomBetween(min, max) {
 var weather = "";
 
 function getWeather() {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            weather = this.responseText;
-        }
-    };
-    xhttp.open("GET", "https://weatherman.mawersoft.co.uk/now?t=" + Math.random(), true);
-    xhttp.send();
+
+    fetch("https://api.mawersoft.co.uk/weatherman/now")
+        .then(resp => resp.json())
+        .then(resp => {
+            weather = resp.body;
+        });
 }
 
 // Main code
@@ -86,10 +85,12 @@ var slides = [
         showTimeWithMotd(weather, true);
     }],
     ["Morning", "06:00", "08:00", function () {
-        showTimeWithMotd("Today's gonna be another great day!", true);
+        //showTimeWithMotd("Today's gonna be another great day!", true);
+        showTimeWithMotd(weather, true);
     }],
     ["Night", "22:00", "24:00", function () {
-        showTimeWithMotd("Goodnight!", true);
+        //showTimeWithMotd("Goodnight!", true);
+        showTimeWithMotd(weather, true);
     }],
     ["Default", "00:00", "23:30", function () {
         showTimeWithMotd(weather, false);
