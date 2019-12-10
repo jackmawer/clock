@@ -1,0 +1,19 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: NPM Install
+        run: npm ci
+      - name: Testing
+        run: npm test --if-present
+      - name: Build and Push Docker Image
+        uses: matootie/github-docker@v1.0.1
+        with:
+          username: jackmawer
+          personalAccessToken: ${{ secrets.DOCKER_PAT }}
